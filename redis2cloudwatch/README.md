@@ -10,9 +10,9 @@ This requires that you have installed [Redis-Py](https://github.com/andymccurdy/
 In the file I comment most metrics. If you want uncomment and make some code modifications to get more metrics in cloudwatch.
 ## Install
     sudo pip3 install boto3 redis
-    curl https://raw.githubusercontent.com/e271828-/redis-cloudwatch/master/cw-redis-stats.py | sudo tee /usr/local/bin/cw-redis-stats.py
-    sudo chmod +x /usr/local/bin/cw-redis-stats.py
-    (crontab -l ; echo "*/1 * * * * /usr/local/bin/cw-redis-stats.py")| crontab -
+    curl https://raw.githubusercontent.com/dubass83/small_py_scripts/master/redis2cloudwatch/redis2cloudwatch.py | sudo tee /usr/local/bin/redis2cloudwatch.py
+    sudo chmod +x /usr/local/bin/redis2cloudwatch.py
+    (crontab -l ; echo "*/1 * * * * /usr/local/bin/redis2cloudwatch.py")| crontab -
 
 
 ## Metrics Captured
