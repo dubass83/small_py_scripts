@@ -1,0 +1,4 @@
+pyodbc
+mysqlclient
+pymongo
+requests
