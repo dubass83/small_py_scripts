@@ -13,11 +13,6 @@ import time
 from datetime import datetime
 
 
-INITIAL_MESSAGE = """\
-Hi! <!here|here> there's a few open pull requests you should take a \
-look at:
-"""
-
 logger = logging.getLogger(os.path.splitext(os.path.basename(sys.argv[0]))[0])
 
 def setup_logging(options):
@@ -189,9 +184,16 @@ def fetch_pulls(options):
 
 
 def main(options):
+
+    INITIAL_MESSAGE = """\
+Hi! <!here|here> there's a few open pull requests you should take a \
+look at:
+"""
+
+    REPO_TEXT = '\n' + '#'*40 + '\n\t' + 'Project: ' + options.project + '\n\tRepo: ' + options.repo + '\n' + '#'*40 + '\n\n'
+
     lines = fetch_pulls(options)
     if lines:
-        REPO_TEXT = '\n' + '#'*40 + '\n\t' + 'Project: ' + options.project + '\n\tRepo: ' + options.repo + '\n' + '#'*40 + '\n\n'
         text = INITIAL_MESSAGE + REPO_TEXT + '\n'.join(lines)
         if options.useslack:
             send_to_slack(text, options)
